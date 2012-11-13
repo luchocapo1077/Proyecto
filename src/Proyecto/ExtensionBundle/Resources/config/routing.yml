@@ -1,0 +1,24 @@
+proyecto_extension_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ProyectoExtensionBundle:Default:index }
+    
+ProyectoExtensionBundle_area:
+    resource: "@ProyectoExtensionBundle/Resources/config/routing/area.yml"
+    prefix:     /area
+    
+ProyectoExtensionBundle_extension:
+    resource: "@ProyectoExtensionBundle/Resources/config/routing/extension.yml"
+    prefix:     /extension
+    
+ProyectoExtensionBundle_lugar:
+    resource: "@ProyectoExtensionBundle/Resources/config/routing/lugar.yml"
+    prefix:     /lugar 
+   
+ProyectoExtensionBundle_periodo:
+    resource: "@ProyectoExtensionBundle/Resources/config/routing/periodo.yml"
+    prefix:     /periodo 
+  
+ProyectoExtensionBundle_proyecto:
+    resource: "@ProyectoExtensionBundle/Resources/config/routing/proyecto.yml"
+    prefix:     /proyecto     
+    

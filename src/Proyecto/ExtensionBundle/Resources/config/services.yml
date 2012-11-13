@@ -1,0 +1,7 @@
+parameters:
+#    proyecto_extension.example.class: Proyecto\ExtensionBundle\Example
+
+services:
+#    proyecto_extension.example:
+#        class: %proyecto_extension.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

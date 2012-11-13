@@ -1,0 +1,30 @@
+periodo:
+    pattern:  /
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:index" }
+
+periodo_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:show" }
+
+periodo_new:
+    pattern:  /new
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:new" }
+
+periodo_create:
+    pattern:  /create
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:create" }
+    requirements: { _method: post }
+
+periodo_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:edit" }
+
+periodo_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:update" }
+    requirements: { _method: post }
+
+periodo_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ProyectoExtensionBundle:Periodo:delete" }
+    requirements: { _method: post }

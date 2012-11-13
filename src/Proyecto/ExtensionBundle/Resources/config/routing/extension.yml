@@ -1,0 +1,30 @@
+extension:
+    pattern:  /
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:index" }
+
+extension_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:show" }
+
+extension_new:
+    pattern:  /new
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:new" }
+
+extension_create:
+    pattern:  /create
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:create" }
+    requirements: { _method: post }
+
+extension_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:edit" }
+
+extension_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:update" }
+    requirements: { _method: post }
+
+extension_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ProyectoExtensionBundle:Extension:delete" }
+    requirements: { _method: post }

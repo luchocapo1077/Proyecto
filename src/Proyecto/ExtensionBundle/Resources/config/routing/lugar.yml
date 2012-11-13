@@ -1,0 +1,30 @@
+lugar:
+    pattern:  /
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:index" }
+
+lugar_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:show" }
+
+lugar_new:
+    pattern:  /new
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:new" }
+
+lugar_create:
+    pattern:  /create
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:create" }
+    requirements: { _method: post }
+
+lugar_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:edit" }
+
+lugar_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:update" }
+    requirements: { _method: post }
+
+lugar_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ProyectoExtensionBundle:Lugar:delete" }
+    requirements: { _method: post }

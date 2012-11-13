@@ -1,0 +1,30 @@
+area:
+    pattern:  /
+    defaults: { _controller: "ProyectoExtensionBundle:Area:index" }
+
+area_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ProyectoExtensionBundle:Area:show" }
+
+area_new:
+    pattern:  /new
+    defaults: { _controller: "ProyectoExtensionBundle:Area:new" }
+
+area_create:
+    pattern:  /create
+    defaults: { _controller: "ProyectoExtensionBundle:Area:create" }
+    requirements: { _method: post }
+
+area_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ProyectoExtensionBundle:Area:edit" }
+
+area_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ProyectoExtensionBundle:Area:update" }
+    requirements: { _method: post }
+
+area_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ProyectoExtensionBundle:Area:delete" }
+    requirements: { _method: post }
