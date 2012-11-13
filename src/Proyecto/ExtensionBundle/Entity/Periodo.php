@@ -91,4 +91,12 @@ class Periodo
     {
         return $this->fechaHasta;
     }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function __toString() {
+        return $this->getFechaDesde()->format('Y-m-d') . ' - ' . $this->getFechaHasta()->format('Y-m-d'); 
+    }
 }

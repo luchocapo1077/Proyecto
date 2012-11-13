@@ -180,10 +180,10 @@ class ProyectoController extends Controller {
         ;
     }
 
-   /**
-    * 
-    * @return type
-    */
+    /**
+     * 
+     * @return type
+     */
     public function mapAction() {
         /**
          * Requests the ivory google map service
@@ -198,28 +198,34 @@ class ProyectoController extends Controller {
         // Add your map type control to the map
         $map->setMapTypeControl($mapTypeControl);
 
-
-        // Requests the ivory google map marker service
-        $marker = $this->get('ivory_google_map.marker');
-
-        // Configure your marker options
-        $marker->setPrefixJavascriptVariable('marker_');
-        $marker->setPosition(-34.911053181274326, -57.94135111665651, true);
-        $marker->setAnimation(Animation::DROP);
-
-        $marker->setOption('clickable', false);
-        $marker->setOption('flat', true);
-        $marker->setOptions(array(
-            'clickable' => false,
-            'flat' => true
-        ));
+        //obtengo extensiones y armo marker
+        $em = $this->getDoctrine()->getManager();
+        $extensiones = $em->getRepository('ProyectoExtensionBundle:Extension')->findAll();
 
 
-        // Add your marker to the map
-        $map->addMarker($marker);      
-        
+
+        foreach ($extensiones as &$extension) {            
+            // Requests the ivory google map marker service
+            $marker = $this->get('ivory_google_map.marker');
+            // Configure your marker options
+            $marker->setPrefixJavascriptVariable('marker_');
+            $marker->setAnimation(Animation::DROP);
+            $marker->setOption('clickable', false);
+            $marker->setOption('flat', true);
+            $marker->setOptions(array(
+                'clickable' => false,
+                'flat' => true
+            ));
+
+
+            //$marker->setPosition(-34.911053181274326, -57.94135111665651, true);
+            $marker->setPosition($extension->getLugar()->getLatitud(), $extension->getLugar()->getLongitud(), true);
+            // Add your marker to the map
+            $map->addMarker($marker);
+        }
+
         return $this->render('ProyectoExtensionBundle:Proyecto:map.html.twig', array(
-                    'map' => $map,                   
+                    'map' => $map,
                 ));
     }
 

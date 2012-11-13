@@ -29,15 +29,15 @@ class Extension {
     private $proyecto;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Periodo")
-     * @ORM\JoinColumn(name="extension_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="Periodo",cascade={"all"})
+     * @ORM\JoinColumn(name="periodo_id", referencedColumnName="id")
      * @return integer
      */
     private $periodo;
 
     /**
      * @ORM\ManyToOne(targetEntity="Lugar")
-     * @ORM\JoinColumn(name="extension_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="lugar_id", referencedColumnName="id")
      * @return integer
      */
     private $lugar;

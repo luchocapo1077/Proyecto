@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Proyecto\ExtensionBundle\Entity\LugarRepository")
  */
-class Lugar
-{
+class Lugar {
+
     /**
      * @var integer $id
      *
@@ -42,14 +42,12 @@ class Lugar
      */
     private $longitud;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -59,10 +57,9 @@ class Lugar
      * @param string $nombre
      * @return Lugar
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -71,8 +68,7 @@ class Lugar
      *
      * @return string 
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -82,10 +78,9 @@ class Lugar
      * @param string $latitud
      * @return Lugar
      */
-    public function setLatitud($latitud)
-    {
+    public function setLatitud($latitud) {
         $this->latitud = $latitud;
-    
+
         return $this;
     }
 
@@ -94,8 +89,7 @@ class Lugar
      *
      * @return string 
      */
-    public function getLatitud()
-    {
+    public function getLatitud() {
         return $this->latitud;
     }
 
@@ -105,10 +99,9 @@ class Lugar
      * @param string $longitud
      * @return Lugar
      */
-    public function setLongitud($longitud)
-    {
+    public function setLongitud($longitud) {
         $this->longitud = $longitud;
-    
+
         return $this;
     }
 
@@ -117,8 +110,16 @@ class Lugar
      *
      * @return string 
      */
-    public function getLongitud()
-    {
+    public function getLongitud() {
         return $this->longitud;
     }
+
+    /**
+     * 
+     * @return type
+     */
+    public function __toString() {
+        return $this->nombre;
+    }
+
 }

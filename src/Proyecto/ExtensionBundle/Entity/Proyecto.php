@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Proyecto\ExtensionBundle\Entity\ProyectoRepository")
  */
-class Proyecto
-{
+class Proyecto {
+
     /**
      * @var integer $id
      *
@@ -34,14 +34,14 @@ class Proyecto
      * @ORM\Column(name="link", type="string", length=255)
      */
     private $link;
-    
-     /**
+
+    /**
      * @ORM\ManyToOne(targetEntity="Area")
      * @ORM\JoinColumn(name="area_id", referencedColumnName="id")
      * @return integer
      */
     private $area;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Extension", mappedBy="proyecto")
      */
@@ -51,14 +51,12 @@ class Proyecto
         $this->extensiones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -68,10 +66,9 @@ class Proyecto
      * @param string $nombre
      * @return Proyecto
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -80,8 +77,7 @@ class Proyecto
      *
      * @return string 
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -91,10 +87,9 @@ class Proyecto
      * @param string $link
      * @return Proyecto
      */
-    public function setLink($link)
-    {
+    public function setLink($link) {
         $this->link = $link;
-    
+
         return $this;
     }
 
@@ -103,32 +98,29 @@ class Proyecto
      *
      * @return string 
      */
-    public function getLink()
-    {
+    public function getLink() {
         return $this->link;
     }
-    
-   /**
-    * 
-    * @param type $area
-    * @return \Proyecto\ExtensionBundle\Entity\Proyecto
-    */
-    public function setArea($area)
-    {
+
+    /**
+     * 
+     * @param type $area
+     * @return \Proyecto\ExtensionBundle\Entity\Proyecto
+     */
+    public function setArea($area) {
         $this->area = $area;
-    
+
         return $this;
     }
 
-   /**
-    * 
-    * @return type
-    */
-    public function getArea()
-    {
+    /**
+     * 
+     * @return type
+     */
+    public function getArea() {
         return $this->area;
     }
-    
+
     /**
      * 
      * @param \Proyecto\ExtensionBundle\Entity\Extension $extensiones
@@ -144,4 +136,13 @@ class Proyecto
     public function getExtensiones() {
         return $this->extensiones;
     }
+
+    /**
+     * 
+     * @return type
+     */
+    public function __toString() {
+        return $this->nombre;
+    }
+
 }
