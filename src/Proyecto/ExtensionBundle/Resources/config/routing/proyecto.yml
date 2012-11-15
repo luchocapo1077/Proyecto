@@ -31,4 +31,8 @@ proyecto_delete:
     
 proyecto_map:
     pattern:  /map
-    defaults: { _controller: "ProyectoExtensionBundle:Proyecto:map" }    
+    defaults: { _controller: "ProyectoExtensionBundle:Proyecto:map" }
+    
+proyecto_mapFilter:
+    pattern:  /map/filter
+    defaults: { _controller: "ProyectoExtensionBundle:Proyecto:mapFilter" }

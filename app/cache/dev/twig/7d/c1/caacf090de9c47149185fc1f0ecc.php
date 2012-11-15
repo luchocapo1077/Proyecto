@@ -91,8 +91,12 @@ class __TwigTemplate_7dc1caacf090de9c47149185fc1f0ecc extends Twig_Template
         </li>
         <li><a href=\"";
         // line 41
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto_map", array("name" => "Maps")), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto_map"), "html", null, true);
         echo "\">Maps</a></li>
+        <li><a href=\"";
+        // line 42
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto_mapFilter"), "html", null, true);
+        echo "\">Filtrar Extensiones</a></li>
     </ul>
 ";
     }
@@ -109,6 +113,6 @@ class __TwigTemplate_7dc1caacf090de9c47149185fc1f0ecc extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  92 => 41,  85 => 37,  78 => 32,  66 => 26,  60 => 23,  53 => 19,  49 => 18,  45 => 17,  39 => 16,  36 => 15,  32 => 14,  17 => 1,);
+        return array (  96 => 42,  92 => 41,  85 => 37,  78 => 32,  66 => 26,  60 => 23,  53 => 19,  49 => 18,  45 => 17,  39 => 16,  36 => 15,  32 => 14,  17 => 1,);
     }
 }

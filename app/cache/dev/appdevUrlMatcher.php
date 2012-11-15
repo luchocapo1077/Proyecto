@@ -480,6 +480,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Proyecto\\ExtensionBundle\\Controller\\ProyectoController::mapAction',  '_route' => 'proyecto_map',);
             }
 
+            // proyecto_mapFilter
+            if ($pathinfo === '/proyecto/map/filter') {
+                return array (  '_controller' => 'Proyecto\\ExtensionBundle\\Controller\\ProyectoController::mapFilterAction',  '_route' => 'proyecto_mapFilter',);
+            }
+
         }
 
         // mdw_demo_homepage

@@ -4,8 +4,11 @@ namespace Proyecto\ExtensionBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bridge\Doctrine\Form\ChoiceList\EntityChoiceList;
 use Proyecto\ExtensionBundle\Entity\Proyecto;
 use Proyecto\ExtensionBundle\Form\ProyectoType;
+use Proyecto\ExtensionBundle\Form\ExtensionFilterType;
+use Proyecto\ExtensionBundle\Entity\ExtensionFilter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Ivory\GoogleMapBundle\Model\MapTypeId;
@@ -185,6 +188,50 @@ class ProyectoController extends Controller {
      * @return type
      */
     public function mapAction() {
+
+
+        //obtengo extensiones y armo marker
+        $em = $this->getDoctrine()->getManager();
+        $extensiones = $em->getRepository('ProyectoExtensionBundle:Extension')->findAll();
+
+        $map = $this->createMapConExtensiones($extensiones);
+
+        return $this->render('ProyectoExtensionBundle:Proyecto:map.html.twig', array(
+                    'map' => $map,
+                ));
+    }
+
+    /**
+     * se genera un google mas con las extensiones de los proyectos usando un filtro
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return type
+     */
+    public function mapFilterAction(Request $request) {
+
+        $filter = new ExtensionFilter();
+        $filter_form = $this->createForm(new ExtensionFilterType(), $filter);
+        $filter_form->bind($request);
+
+        //obtengo extensiones
+        $em = $this->getDoctrine()->getManager();
+        $extensiones = $em->getRepository('ProyectoExtensionBundle:Extension')->findExtensionesByFilter($filter);
+
+        //se arma el mapa con las extensiones
+        $map = $this->createMapConExtensiones($extensiones);
+
+        return $this->render('ProyectoExtensionBundle:Proyecto:mapFilter.html.twig', array(
+                    'entity' => $filter,
+                    'filter_form' => $filter_form->createView(),
+                    'map' => $map,
+                ));
+    }
+
+    /**
+     * el metodo devuelve un google maps con las extensiones de proyectos
+     * @param type $extensiones
+     * @return type
+     */
+    private function createMapConExtensiones($extensiones) {
         /**
          * Requests the ivory google map service
          *
@@ -198,35 +245,35 @@ class ProyectoController extends Controller {
         // Add your map type control to the map
         $map->setMapTypeControl($mapTypeControl);
 
-        //obtengo extensiones y armo marker
-        $em = $this->getDoctrine()->getManager();
-        $extensiones = $em->getRepository('ProyectoExtensionBundle:Extension')->findAll();
-
-
-
-        foreach ($extensiones as &$extension) {            
+        foreach ($extensiones as &$extension) {
             // Requests the ivory google map marker service
             $marker = $this->get('ivory_google_map.marker');
+
             // Configure your marker options
             $marker->setPrefixJavascriptVariable('marker_');
+            $marker->setOption('title', $extension->getProyecto()->getNombre());
             $marker->setAnimation(Animation::DROP);
-            $marker->setOption('clickable', false);
+            $marker->setOption('clickable', true);
             $marker->setOption('flat', true);
-            $marker->setOptions(array(
-                'clickable' => false,
-                'flat' => true
-            ));
-
-
-            //$marker->setPosition(-34.911053181274326, -57.94135111665651, true);
             $marker->setPosition($extension->getLugar()->getLatitud(), $extension->getLugar()->getLongitud(), true);
+
+            $infoWindow = $this->get('ivory_google_map.info_window');
+            
+            $content = '<p>Area: ' . $extension->getProyecto()->getArea().'</p>';
+            $content = $content . '<p>Nombre del Proyecto: ' . $extension->getProyecto().'</p>';
+            $infoWindow->setContent($content);
+            
+            $infoWindow->setAutoClose(true);
+            $infoWindow->setOpen(false);
+            $infoWindow->setAutoOpen(true);
+            // Add your info window to the marker
+            $marker->setInfoWindow($infoWindow);
+
             // Add your marker to the map
             $map->addMarker($marker);
         }
 
-        return $this->render('ProyectoExtensionBundle:Proyecto:map.html.twig', array(
-                    'map' => $map,
-                ));
+        return $map;
     }
 
 }
