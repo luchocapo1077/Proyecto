@@ -1,3 +1,8 @@
+{% extends "ProyectoExtensionBundle::layout.html.twig" %}
+
+{% block title %}Extensiones{% endblock %}
+
+{% block body %}
 <h1>Extension</h1>
 
 <table class="record_properties">
@@ -6,24 +11,37 @@
             <th>Id</th>
             <td>{{ entity.id }}</td>
         </tr>
+        <tr>
+            <th>Proyecto</th>
+            <td>{{ entity.proyecto }}</td>
+        </tr>
+        <tr>
+            <th>Periodo</th>
+            <td>{{ entity.periodo }}</td>
+        </tr>
+        <tr>
+            <th>Lugar</th>
+            <td>{{ entity.lugar }}</td>
+        </tr>
     </tbody>
 </table>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('extension') }}">
-            Back to the list
+            Volver al listado
         </a>
     </li>
     <li>
         <a href="{{ path('extension_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action="{{ path('extension_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Borrar</button>
         </form>
     </li>
 </ul>
+{% endblock %}

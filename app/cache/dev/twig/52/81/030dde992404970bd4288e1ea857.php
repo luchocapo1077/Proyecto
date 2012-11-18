@@ -7,42 +7,61 @@ class __TwigTemplate_5281030dde992404970bd4288e1ea857 extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("ProyectoExtensionBundle::layout.html.twig");
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'body' => array($this, 'block_body'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "ProyectoExtensionBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "<h1>Area creation</h1>
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
 
-<form action=\"";
-        // line 3
+    // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Areas";
+    }
+
+    // line 5
+    public function block_body($context, array $blocks = array())
+    {
+        // line 6
+        echo "    <h1>Crear Area</h1>
+
+    <form action=\"";
+        // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_create"), "html", null, true);
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'enctype');
         echo ">
-    ";
-        // line 4
+        ";
+        // line 9
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'widget');
         echo "
-    <p>
-        <button type=\"submit\">Create</button>
-    </p>
-</form>
+        <p>
+            <button type=\"submit\">Crear</button>
+        </p>
+    </form>
 
-<ul class=\"record_actions\">
-    <li>
-        <a href=\"";
-        // line 12
+    <ul class=\"record_actions\">
+        <li>
+            <a href=\"";
+        // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area"), "html", null, true);
         echo "\">
-            Back to the list
-        </a>
-    </li>
-</ul>
+                Volver al listado
+            </a>
+        </li>
+    </ul>
 ";
     }
 
@@ -58,6 +77,6 @@ class __TwigTemplate_5281030dde992404970bd4288e1ea857 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  38 => 12,  27 => 4,  21 => 3,  17 => 1,);
+        return array (  57 => 17,  46 => 9,  40 => 8,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

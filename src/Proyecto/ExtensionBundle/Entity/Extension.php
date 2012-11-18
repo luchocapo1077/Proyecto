@@ -98,5 +98,13 @@ class Extension {
     public function getLugar() {
         return $this->lugar;
     }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getLink() {
+        return $this->getProyecto()->getLink();
+    }
 
 }

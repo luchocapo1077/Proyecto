@@ -31,9 +31,9 @@ class Periodo
     /**
      * @var \DateTime $fechaHasta
      *
-     * @ORM\Column(name="fechaHasta", type="date")
+     * @ORM\Column(name="fechaHasta", type="date", nullable=true)
      */
-    private $fechaHasta;
+    private $fechaHasta; 
 
 
     /**
@@ -97,6 +97,10 @@ class Periodo
      * @return type
      */
     public function __toString() {
-        return $this->getFechaDesde()->format('Y-m-d') . ' - ' . $this->getFechaHasta()->format('Y-m-d'); 
+        $fechas = $this->getFechaDesde()->format('d-m-Y');
+        if($this->getFechaHasta()){
+            $fechas= $fechas .' - ' . $this->getFechaHasta()->format('d-m-Y');
+        }
+        return $fechas; 
     }
 }

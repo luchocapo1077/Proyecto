@@ -460,8 +460,8 @@
     <parameter key="jms_di_extra.directories" type="collection"/>
     <parameter key="jms_di_extra.cache_dir">C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a475442f7c5.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a9304fd70cc.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -569,7 +569,7 @@
     <parameter key="ivory_google_map.map.bound.north_east.longitude">0</parameter>
     <parameter key="ivory_google_map.map.bound.north_east.latitude">0</parameter>
     <parameter key="ivory_google_map.map.bound.north_east.no_wrap">true</parameter>
-    <parameter key="ivory_google_map.map.type">hybrid</parameter>
+    <parameter key="ivory_google_map.map.type">roadmap</parameter>
     <parameter key="ivory_google_map.map.zoom">6</parameter>
     <parameter key="ivory_google_map.map.width">540px</parameter>
     <parameter key="ivory_google_map.map.height">400px</parameter>
@@ -2375,8 +2375,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a475442f7c5.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a9304fd70cc.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2653,7 +2653,7 @@
       </call>
       <call method="setMapOption">
         <argument>mapTypeId</argument>
-        <argument>hybrid</argument>
+        <argument>roadmap</argument>
       </call>
       <call method="setMapOption">
         <argument>zoom</argument>

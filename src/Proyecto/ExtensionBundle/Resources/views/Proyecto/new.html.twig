@@ -1,16 +1,22 @@
-<h1>Proyecto creation</h1>
+{% extends "ProyectoExtensionBundle::layout.html.twig" %}
+
+{% block title %}Proyectos{% endblock %}
+
+{% block body %}
+<h1>Crear Proyecto</h1>
 
 <form action="{{ path('proyecto_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit">Guardar</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('proyecto') }}">
-            Back to the list
+            Volver al listado
         </a>
     </li>
 </ul>
+{% endblock %}

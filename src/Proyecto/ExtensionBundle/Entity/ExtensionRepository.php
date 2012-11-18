@@ -16,20 +16,45 @@ class ExtensionRepository extends EntityRepository {
         $em = $this->getEntityManager();
 
         $dql = "select e from ProyectoExtensionBundle:Extension e";
-        
+
+        //armo los join
         //si hay areas para filtrar armo la consulta
         if (count($filter->getAreas()) > 0) {
-            $dql = $dql . " INNER JOIN e.proyecto p INNER JOIN p.area a WHERE a.id IN (:areas)";
-            //guardo los id de las areas en un arreglo para luego filtrar
-            $areas = array();
-            foreach ($filter->getAreas() as $area) {
-                $areas[] = $area->getId();
+            $dql = $dql . " INNER JOIN e.proyecto p INNER JOIN p.area a";
+        }
+
+        //si se filtrar solo proyectos vigentes
+        if ($filter->getSoloProyectosVigentes()) {
+            $dql = $dql . " INNER JOIN e.periodo pe";
+        }
+
+        //armo where
+        if (count($filter->getAreas()) > 0 || $filter->getSoloProyectosVigentes()) {
+            $dql = $dql . " WHERE";
+        }
+
+        //si hay areas para filtrar armo la consulta
+        if (count($filter->getAreas()) > 0) {
+            $dql = $dql . " a.id IN (:areas)";
+        }
+
+        //si se filtrar solo proyectos vigentes
+        if ($filter->getSoloProyectosVigentes()) {
+            //si se esta filtrando por areas agrego la condicion del AND
+            if (count($filter->getAreas()) > 0) {
+                $dql = $dql . " AND";
             }
+            $dql = $dql . " pe.fechaHasta IS NOT NULL";
         }
 
         $query = $em->createQuery($dql);
         //si hay areas para filtrar seteo el parametro a la consulta con los id de las areas a filtrar
         if (count($filter->getAreas()) > 0) {
+            //guardo los id de las areas en un arreglo para luego filtrar
+            $areas = array();
+            foreach ($filter->getAreas() as $area) {
+                $areas[] = $area->getId();
+            }
             $query->setParameter('areas', $areas);
         }
 

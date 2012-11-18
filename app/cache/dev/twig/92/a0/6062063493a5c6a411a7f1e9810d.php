@@ -7,15 +7,34 @@ class __TwigTemplate_92a06062063493a5c6a411a7f1e9810d extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("ProyectoExtensionBundle::layout.html.twig");
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'body' => array($this, 'block_body'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "ProyectoExtensionBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Proyectos";
+    }
+
+    // line 5
+    public function block_body($context, array $blocks = array())
+    {
+        // line 6
         echo "<h1>Proyecto</h1>
 
 <table class=\"record_properties\">
@@ -23,28 +42,28 @@ class __TwigTemplate_92a06062063493a5c6a411a7f1e9810d extends Twig_Template
         <tr>
             <th>Id</th>
             <td>";
-        // line 7
+        // line 12
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
         echo "</td>
         </tr>
         <tr>
             <th>Nombre</th>
             <td>";
-        // line 11
+        // line 16
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "nombre"), "html", null, true);
         echo "</td>
         </tr>
         <tr>
             <th>Link</th>
             <td>";
-        // line 15
+        // line 20
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "link"), "html", null, true);
         echo "</td>
         </tr>
         <tr>
             <th>Area</th>
             <td>";
-        // line 19
+        // line 24
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "area"), "html", null, true);
         echo "</td>
         </tr>
@@ -54,30 +73,30 @@ class __TwigTemplate_92a06062063493a5c6a411a7f1e9810d extends Twig_Template
 <ul class=\"record_actions\">
     <li>
         <a href=\"";
-        // line 26
+        // line 31
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto"), "html", null, true);
         echo "\">
-            Back to the list
+            Volver al listado
         </a>
     </li>
     <li>
         <a href=\"";
-        // line 31
+        // line 36
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action=\"";
-        // line 36
+        // line 41
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto_delete", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\" method=\"post\">
             ";
-        // line 37
+        // line 42
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "delete_form"), 'widget');
         echo "
-            <button type=\"submit\">Delete</button>
+            <button type=\"submit\">Borrar</button>
         </form>
     </li>
 </ul>
@@ -96,6 +115,6 @@ class __TwigTemplate_92a06062063493a5c6a411a7f1e9810d extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  76 => 37,  72 => 36,  64 => 31,  56 => 26,  46 => 19,  39 => 15,  32 => 11,  25 => 7,  17 => 1,);
+        return array (  95 => 42,  91 => 41,  83 => 36,  75 => 31,  65 => 24,  58 => 20,  51 => 16,  44 => 12,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

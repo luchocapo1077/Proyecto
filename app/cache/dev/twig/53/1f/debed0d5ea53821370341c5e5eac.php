@@ -43,7 +43,7 @@ class __TwigTemplate_531fdebed0d5ea53821370341c5e5eac extends Twig_Template
         // line 18
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area"), "html", null, true);
         echo "\">
-            Back to the list
+            Volver al listado
         </a>
     </li>
     <li>
@@ -51,7 +51,7 @@ class __TwigTemplate_531fdebed0d5ea53821370341c5e5eac extends Twig_Template
         // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\">
-            Edit
+            Editar
         </a>
     </li>
     <li>
@@ -63,7 +63,7 @@ class __TwigTemplate_531fdebed0d5ea53821370341c5e5eac extends Twig_Template
         // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "delete_form"), 'widget');
         echo "
-            <button type=\"submit\">Delete</button>
+            <button type=\"submit\">Borrar</button>
         </form>
     </li>
 </ul>

@@ -11,8 +11,13 @@ class PeriodoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaDesde')
-            ->add('fechaHasta')
+           ->add('fechaDesde','date',array(
+                    'label' => 'Fecha Inicio','format' => 'dd-MM-yyyy',
+                ))
+            ->add('fechaHasta','date',array(
+                    'label' => 'Fecha Fin','format' => 'dd-MM-yyyy',
+                    'required' => false,
+                ))
         ;
     }
 

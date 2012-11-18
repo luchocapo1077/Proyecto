@@ -35,4 +35,4 @@ proyecto_map:
     
 proyecto_mapFilter:
     pattern:  /map/filter
-    defaults: { _controller: "ProyectoExtensionBundle:Proyecto:mapFilter" }
+    defaults: { _controller: "ProyectoExtensionBundle:Proyecto:mapFilter" }  

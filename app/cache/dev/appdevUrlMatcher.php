@@ -31,7 +31,7 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->redirect($pathinfo.'/', '_welcome');
             }
 
-            return array (  '_controller' => 'Acme\\DemoBundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
+            return array (  '_controller' => 'Proyecto\\ExtensionBundle\\Controller\\DefaultController::indexAction',  '_route' => '_welcome',);
         }
 
         // _demo_login

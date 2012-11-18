@@ -100,7 +100,7 @@ ivory_google_map:
 
         # Default map type
         # Available map type : hybrid, roadmap, satellite, terrain
-        type: "hybrid"
+        type: "roadmap"
 
         # Map width
         width: "540px"
@@ -127,7 +127,7 @@ ivory_google_map:
     map_type_control:
         # Map type ids of the map type control
         # Available map type ids : roadmap, satellite, hybrid, terrain
-        map_type_ids: ["roadmap", "satellite"]
+        map_type_ids: ["roadmap","satellite"]
         
         # Map type control position
         # Available map type control position:

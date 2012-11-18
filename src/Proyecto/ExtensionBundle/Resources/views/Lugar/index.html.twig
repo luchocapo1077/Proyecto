@@ -1,5 +1,17 @@
-<h1>Lugar list</h1>
+{% extends "ProyectoExtensionBundle::layout.html.twig" %}
 
+{% block title %}Lugares{% endblock %}
+
+{% block body %}
+<h1>Listado de Lugares</h1>
+
+<ul id="menu">
+    <li>
+        <a href="{{ path('lugar_new') }}">
+            Crear un Lugar
+        </a>
+    </li>
+</ul>
 <table class="records_list">
     <thead>
         <tr>
@@ -7,7 +19,7 @@
             <th>Nombre</th>
             <th>Latitud</th>
             <th>Longitud</th>
-            <th>Actions</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -20,10 +32,10 @@
             <td>
                 <ul>
                     <li>
-                        <a href="{{ path('lugar_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('lugar_show', { 'id': entity.id }) }}">mostrar</a>
                     </li>
                     <li>
-                        <a href="{{ path('lugar_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('lugar_edit', { 'id': entity.id }) }}">editar</a>
                     </li>
                 </ul>
             </td>
@@ -32,10 +44,4 @@
     </tbody>
 </table>
 
-<ul>
-    <li>
-        <a href="{{ path('lugar_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% endblock %}

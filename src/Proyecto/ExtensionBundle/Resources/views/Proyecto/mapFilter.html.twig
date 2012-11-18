@@ -1,20 +1,24 @@
-{% block title "Filtrando Extensiones " %}
+{% extends "ProyectoExtensionBundle::layout.html.twig" %}
 
-{% block content %}
-    {#- comment -#}
-    {#{ google_map_css(map) }#}
-    <h1>Extensiones</h1>  
+{% block title %}Proyectos{% endblock %}
+
+{% block body %}
+<h1>Filtrar Extensiones de Proyectos</h1>
     {{ google_map_container(map) }}
     {{ google_map_js(map) }}
-    
-    <form action="{{ path('proyecto_mapFilter')}}" method="post" {{ form_enctype(filter_form) }}>
-    {{ form_widget(filter_form) }}
+
+<form action="{{ path('proyecto_mapFilter')}}" method="post" {{ form_enctype(filter_form) }}>
+    {{ form_rest(filter_form) }}
     <p>
         <button type="submit">Filtrar</button>
     </p>
-    </form>    
-    
-    
-{% endblock %}
+    </form> 
 
-{% set code = code(_self) %}
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('proyecto') }}">
+            Volver
+        </a>
+    </li>
+</ul>
+{% endblock %}

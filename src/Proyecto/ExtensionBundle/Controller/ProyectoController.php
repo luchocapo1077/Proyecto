@@ -257,12 +257,24 @@ class ProyectoController extends Controller {
             $marker->setOption('flat', true);
             $marker->setPosition($extension->getLugar()->getLatitud(), $extension->getLugar()->getLongitud(), true);
 
+
+            // Requests the ivory google map marker image service
+            $markerImage = $this->get('ivory_google_map.marker_image');
+            //$markerImage->setUrl('');
+            // Add your marker image to the marker like an icon
+            $marker->setIcon($markerImage);
+
+
             $infoWindow = $this->get('ivory_google_map.info_window');
-            
-            $content = '<p>Area: ' . $extension->getProyecto()->getArea().'</p>';
-            $content = $content . '<p>Nombre del Proyecto: ' . $extension->getProyecto().'</p>';
+
+            $content = '<b>Area: </b>' . $extension->getProyecto()->getArea() . '</br>';
+            $content = $content . '<b>Periodo: </b>' . $extension->getPeriodo() . '</br>';
+            $content = $content . '<b>Nombre Proyecto: </b>' . $extension->getProyecto() . '</br>';
+            $content = $content . '<b>Lugar: </b>' . $extension->getLugar() . '</br>';
+            $content = $content . '<b>Informacion: </b>' . '' . '</br>';
+            $content = $content . '<b>Link al Proyecto: </b>' . $extension->getLink() . '</br>';
             $infoWindow->setContent($content);
-            
+
             $infoWindow->setAutoClose(true);
             $infoWindow->setOpen(false);
             $infoWindow->setAutoOpen(true);

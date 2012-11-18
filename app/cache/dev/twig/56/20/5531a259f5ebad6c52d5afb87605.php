@@ -7,17 +7,46 @@ class __TwigTemplate_56205531a259f5ebad6c52d5afb87605 extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("ProyectoExtensionBundle::layout.html.twig");
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'body' => array($this, 'block_body'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "ProyectoExtensionBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "<h1>Lugar list</h1>
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
 
+    // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Lugares";
+    }
+
+    // line 5
+    public function block_body($context, array $blocks = array())
+    {
+        // line 6
+        echo "<h1>Listado de Lugares</h1>
+
+<ul id=\"menu\">
+    <li>
+        <a href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar_new"), "html", null, true);
+        echo "\">
+            Crear un Lugar
+        </a>
+    </li>
+</ul>
 <table class=\"records_list\">
     <thead>
         <tr>
@@ -25,48 +54,48 @@ class __TwigTemplate_56205531a259f5ebad6c52d5afb87605 extends Twig_Template
             <th>Nombre</th>
             <th>Latitud</th>
             <th>Longitud</th>
-            <th>Actions</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
     ";
-        // line 14
+        // line 26
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 15
+            // line 27
             echo "        <tr>
             <td><a href=\"";
-            // line 16
+            // line 28
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
             echo "</a></td>
             <td>";
-            // line 17
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "nombre"), "html", null, true);
             echo "</td>
             <td>";
-            // line 18
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "latitud"), "html", null, true);
             echo "</td>
             <td>";
-            // line 19
+            // line 31
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "longitud"), "html", null, true);
             echo "</td>
             <td>
                 <ul>
                     <li>
                         <a href=\"";
-            // line 23
+            // line 35
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
-            echo "\">show</a>
+            echo "\">mostrar</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 26
+            // line 38
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
-            echo "\">edit</a>
+            echo "\">editar</a>
                     </li>
                 </ul>
             </td>
@@ -76,20 +105,10 @@ class __TwigTemplate_56205531a259f5ebad6c52d5afb87605 extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 32
+        // line 44
         echo "    </tbody>
 </table>
 
-<ul>
-    <li>
-        <a href=\"";
-        // line 37
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar_new"), "html", null, true);
-        echo "\">
-            Create a new entry
-        </a>
-    </li>
-</ul>
 ";
     }
 
@@ -105,6 +124,6 @@ class __TwigTemplate_56205531a259f5ebad6c52d5afb87605 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  85 => 37,  78 => 32,  66 => 26,  60 => 23,  53 => 19,  49 => 18,  45 => 17,  39 => 16,  36 => 15,  32 => 14,  17 => 1,);
+        return array (  107 => 44,  95 => 38,  89 => 35,  82 => 31,  78 => 30,  74 => 29,  68 => 28,  65 => 27,  61 => 26,  42 => 10,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

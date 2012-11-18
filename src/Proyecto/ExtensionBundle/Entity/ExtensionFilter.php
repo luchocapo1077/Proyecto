@@ -6,6 +6,7 @@ class ExtensionFilter {
 
     private $id;
     private $areas;
+    private $soloProyectosVigentes;
 
     public function __construct() {
         $this->areas = new \Doctrine\Common\Collections\ArrayCollection();
@@ -37,6 +38,24 @@ class ExtensionFilter {
      */
     public function getAreas() {
         return $this->areas;
+    }
+
+    /**
+     * 
+     * @return type
+     */
+    public function getSoloProyectosVigentes() {
+        return $this->soloProyectosVigentes;
+    }
+
+    /**
+     * 
+     * @param type $soloProyectosVigentes
+     * @return \Proyecto\ExtensionBundle\Entity\ExtensionFilter
+     */
+    public function setSoloProyectosVigentes($soloProyectosVigentes) {
+        $this->soloProyectosVigentes = (boolean) $soloProyectosVigentes;
+        return $this;
     }
 
 }

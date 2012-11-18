@@ -1,3 +1,8 @@
+{% extends "ProyectoExtensionBundle::layout.html.twig" %}
+
+{% block title %}Lugares{% endblock %}
+
+{% block body %}
 <h1>Lugar</h1>
 
 <table class="record_properties">
@@ -24,18 +29,19 @@
 <ul class="record_actions">
     <li>
         <a href="{{ path('lugar') }}">
-            Back to the list
+            Volver al listado
         </a>
     </li>
     <li>
         <a href="{{ path('lugar_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action="{{ path('lugar_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Borrar</button>
         </form>
     </li>
 </ul>
+{% endblock %}

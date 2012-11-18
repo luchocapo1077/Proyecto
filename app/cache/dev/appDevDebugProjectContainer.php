@@ -266,11 +266,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a475442f7c5.php';
+        require_once 'C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a9304fd70cc.php';
 
         $a = $this->get('annotation_reader');
 
@@ -309,7 +309,7 @@ class appDevDebugProjectContainer extends Container
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
 
     /**
@@ -1184,7 +1184,7 @@ class appDevDebugProjectContainer extends Container
         $instance->setAutoZoom(false);
         $instance->setCenter(-36.90138112003, -60.3047847, true);
         $instance->setBound(0, 0, 0, 0, true, true);
-        $instance->setMapOption('mapTypeId', 'hybrid');
+        $instance->setMapOption('mapTypeId', 'roadmap');
         $instance->setMapOption('zoom', 6);
         $instance->setStylesheetOption('width', '540px');
         $instance->setStylesheetOption('height', '400px');
@@ -3096,7 +3096,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3934,8 +3934,8 @@ class appDevDebugProjectContainer extends Container
             ),
             'jms_di_extra.cache_dir' => 'C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra',
             'jms_di_extra.doctrine_integration' => true,
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a475442f7c5.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager50a475442f7c5_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/xampp/htdocs/proyectoSymfony2/app/cache/dev/jms_diextra/doctrine/EntityManager_50a9304fd70cc.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager50a9304fd70cc_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),
@@ -4047,7 +4047,7 @@ class appDevDebugProjectContainer extends Container
             'ivory_google_map.map.bound.north_east.longitude' => 0,
             'ivory_google_map.map.bound.north_east.latitude' => 0,
             'ivory_google_map.map.bound.north_east.no_wrap' => true,
-            'ivory_google_map.map.type' => 'hybrid',
+            'ivory_google_map.map.type' => 'roadmap',
             'ivory_google_map.map.zoom' => 6,
             'ivory_google_map.map.width' => '540px',
             'ivory_google_map.map.height' => '400px',

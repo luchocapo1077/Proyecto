@@ -57,7 +57,7 @@ class __TwigTemplate_6b09e4237878e8f234bbe3814e0ef5a3 extends Twig_Template
         // line 26
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar"), "html", null, true);
         echo "\">
-            Back to the list
+            Volver al listado
         </a>
     </li>
     <li>
@@ -65,7 +65,7 @@ class __TwigTemplate_6b09e4237878e8f234bbe3814e0ef5a3 extends Twig_Template
         // line 31
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("lugar_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\">
-            Edit
+            Editar
         </a>
     </li>
     <li>
@@ -77,7 +77,7 @@ class __TwigTemplate_6b09e4237878e8f234bbe3814e0ef5a3 extends Twig_Template
         // line 37
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "delete_form"), 'widget');
         echo "
-            <button type=\"submit\">Delete</button>
+            <button type=\"submit\">Borrar</button>
         </form>
     </li>
 </ul>

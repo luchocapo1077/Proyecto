@@ -10,11 +10,16 @@ class ExtensionFilterType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
 
-        $builder->add('areas', 'entity', array(
-            'class' => 'ProyectoExtensionBundle:Area',
-            'property' => 'nombre',
-            'multiple' => true, 'expanded' => true
-        ));
+        $builder->add('soloProyectosVigentes', 'checkbox', array(
+                    'label' => 'Mostrar solo proyectos vigentes: ',
+                    'required' => false,
+                ))
+                ->add('areas', 'entity', array(
+                    'label' => 'Areas',
+                    'class' => 'ProyectoExtensionBundle:Area',
+                    'property' => 'nombre','required' => false,
+                    'multiple' => true, 'expanded' => true
+                ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {

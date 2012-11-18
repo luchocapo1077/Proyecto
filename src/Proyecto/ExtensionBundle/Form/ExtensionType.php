@@ -10,9 +10,6 @@ class ExtensionType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-                //->add('proyecto')
-                //->add('periodo')
-                // ->add('lugar')                
                 ->add('proyecto', 'entity', array('class' => 'ProyectoExtensionBundle:Proyecto', 'empty_value' =>
                     'Seleccione un proyecto', 'required' => false))
                 ->add('periodo', new PeriodoType())

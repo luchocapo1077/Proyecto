@@ -7,18 +7,45 @@ class __TwigTemplate_3676a6f79bc2e51627825f6a09c8e148 extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("ProyectoExtensionBundle::layout.html.twig");
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'content_header' => array($this, 'block_content_header'),
+            'content' => array($this, 'block_content'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "ProyectoExtensionBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "Hola ";
-        echo twig_escape_filter($this->env, $this->getContext($context, "name"), "html", null, true);
-        echo "!
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Proyectos de Extension - Bienvenido";
+    }
+
+    // line 5
+    public function block_content_header($context, array $blocks = array())
+    {
+        echo "";
+    }
+
+    // line 7
+    public function block_content($context, array $blocks = array())
+    {
+        echo " 
+
+    <h1>Bienvenido!</h1>
+
+    <p>Proyectos de Extension.</p>    
 ";
     }
 
@@ -34,6 +61,6 @@ class __TwigTemplate_3676a6f79bc2e51627825f6a09c8e148 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  17 => 1,);
+        return array (  40 => 7,  34 => 5,  28 => 3,);
     }
 }

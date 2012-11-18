@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Proyectos de Extension{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('bundles/proyectoextension/css/table.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/proyectoextension/css/demo.css') }}" />
+    </head>
+    <body>
+        <div id="symfony-wrapper">
+        <div id="sidebar">
+            {% block sidebar %}
+            <ul id="menu">
+                    <li>
+                        <a href="{{ path('proyecto') }}">
+                            Proyectos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('extension') }}">
+                            Extensiones
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('lugar') }}">
+                            Lugares
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('area') }}">
+                            Areas
+                        </a>
+                    </li>
+            </ul>
+                <div style="clear: both"></div>
+            {% endblock %}
+        </div>
+
+        <div id="symfony-content">
+            {% block body %}{% endblock %}
+        </div>
+     </div>            
+    </body>
+</html>        

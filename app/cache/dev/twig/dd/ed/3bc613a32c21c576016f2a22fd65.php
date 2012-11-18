@@ -7,41 +7,35 @@ class __TwigTemplate_dded3bc613a32c21c576016f2a22fd65 extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("ProyectoExtensionBundle::layout.html.twig");
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'content' => array($this, 'block_content'),
+            'body' => array($this, 'block_body'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "ProyectoExtensionBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        $this->displayBlock('title', $context, $blocks);
-        // line 2
-        echo "
-";
-        // line 3
-        $this->displayBlock('content', $context, $blocks);
-        // line 19
-        echo "
-";
-        // line 20
-        $context["code"] = $this->env->getExtension('demo')->getCode($this);
-    }
-
-    // line 1
-    public function block_title($context, array $blocks = array())
-    {
-        echo "Filtrando Extensiones ";
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
     // line 3
-    public function block_content($context, array $blocks = array())
+    public function block_title($context, array $blocks = array())
+    {
+        echo "Proyectos";
+    }
+
+    // line 5
+    public function block_body($context, array $blocks = array())
     {
         // line 6
-        echo "    <h1>Extensiones</h1>  
+        echo "<h1>Filtrar Extensiones de Proyectos</h1>
     ";
         // line 7
         echo $this->env->getExtension('ivory_google_map')->renderContainer($this->getContext($context, "map"));
@@ -50,8 +44,8 @@ class __TwigTemplate_dded3bc613a32c21c576016f2a22fd65 extends Twig_Template
         // line 8
         echo $this->env->getExtension('ivory_google_map')->renderJavascripts($this->getContext($context, "map"));
         echo "
-    
-    <form action=\"";
+
+<form action=\"";
         // line 10
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto_mapFilter"), "html", null, true);
         echo "\" method=\"post\" ";
@@ -59,14 +53,23 @@ class __TwigTemplate_dded3bc613a32c21c576016f2a22fd65 extends Twig_Template
         echo ">
     ";
         // line 11
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "filter_form"), 'widget');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "filter_form"), 'rest');
         echo "
     <p>
         <button type=\"submit\">Filtrar</button>
     </p>
-    </form>    
-    
-    
+    </form> 
+
+<ul class=\"record_actions\">
+    <li>
+        <a href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto"), "html", null, true);
+        echo "\">
+            Volver
+        </a>
+    </li>
+</ul>
 ";
     }
 
@@ -82,6 +85,6 @@ class __TwigTemplate_dded3bc613a32c21c576016f2a22fd65 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  60 => 11,  54 => 10,  49 => 8,  45 => 7,  42 => 6,  39 => 3,  33 => 1,  29 => 20,  26 => 19,  24 => 3,  21 => 2,  19 => 1,);
+        return array (  65 => 19,  54 => 11,  48 => 10,  43 => 8,  39 => 7,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

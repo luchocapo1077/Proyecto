@@ -16,7 +16,7 @@ class __TwigTemplate_a641553f67273bd2a66969ca1f1007d0 extends Twig_Template
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<h1>Proyecto creation</h1>
+        echo "<h1>Crear Proyecto</h1>
 
 <form action=\"";
         // line 3
@@ -29,7 +29,7 @@ class __TwigTemplate_a641553f67273bd2a66969ca1f1007d0 extends Twig_Template
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "form"), 'widget');
         echo "
     <p>
-        <button type=\"submit\">Create</button>
+        <button type=\"submit\">Guardar</button>
     </p>
 </form>
 
@@ -39,7 +39,7 @@ class __TwigTemplate_a641553f67273bd2a66969ca1f1007d0 extends Twig_Template
         // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("proyecto"), "html", null, true);
         echo "\">
-            Back to the list
+            Volver al listado
         </a>
     </li>
 </ul>
