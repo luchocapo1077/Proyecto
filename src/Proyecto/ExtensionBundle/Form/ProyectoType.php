@@ -11,9 +11,11 @@ class ProyectoType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('nombre')
-                ->add('link')
+                ->add('link','text', array(                    
+                    'required' => false,
+                ))
                 ->add('area', 'entity', array('class' => 'ProyectoExtensionBundle:Area', 'empty_value' =>
-                    'Seleccione un area', 'required' => false));
+                    'Seleccione un area', 'required' => true));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {

@@ -257,13 +257,13 @@ class ProyectoController extends Controller {
             $marker->setOption('flat', true);
             $marker->setPosition($extension->getLugar()->getLatitud(), $extension->getLugar()->getLongitud(), true);
 
-
-            // Requests the ivory google map marker image service
-            $markerImage = $this->get('ivory_google_map.marker_image');
-            //$markerImage->setUrl('');
-            // Add your marker image to the marker like an icon
-            $marker->setIcon($markerImage);
-
+            if ($extension->getProyecto()->getArea()->getIconoPath()) {
+                // Requests the ivory google map marker image service
+                $markerImage = $this->get('ivory_google_map.marker_image');
+                $markerImage->setUrl($this->getRequest()->getBasePath() . '/uploads/markerIconos/' . unserialize($extension->getProyecto()->getArea()->getIconoPath()));
+                // Add your marker image to the marker like an icon
+                $marker->setIcon($markerImage);
+            }
 
             $infoWindow = $this->get('ivory_google_map.info_window');
 
@@ -273,6 +273,7 @@ class ProyectoController extends Controller {
             $content = $content . '<b>Lugar: </b>' . $extension->getLugar() . '</br>';
             $content = $content . '<b>Informacion: </b>' . '' . '</br>';
             $content = $content . '<b>Link al Proyecto: </b>' . $extension->getLink() . '</br>';
+
             $infoWindow->setContent($content);
 
             $infoWindow->setAutoClose(true);

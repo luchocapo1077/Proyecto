@@ -3,34 +3,40 @@
 {% block title %}Areas{% endblock %}
 
 {% block body %}
-    <h1>Area</h1>
+<h1>Area</h1>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ entity.nombre }}</td>
+        </tr>
+        {% if icono != null %}       
+            <tr><th>Icono</th>
+                <td><img src="{{ asset(['uploads/markerIconos/', icono]|join) }}" alt="{{icono}} image not found" class="large" /></td>
             </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ entity.nombre }}</td>
-            </tr>
-        </tbody>
-    </table>
+        {% endif %}
 
-    <ul class="record_actions">
-        <li>
-            <a href="{{ path('area') }}">
-                Volver al listado
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('area_edit', { 'id': entity.id }) }}">
-                Editar
-            </a>
-        </li>
-        <li>
-            <form action="{{ path('area_delete', { 'id': entity.id }) }}" method="post">
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('area') }}">
+            Volver al listado
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('area_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('area_delete', { 'id': entity.id }) }}" method="post">
                 {{ form_widget(delete_form) }}
                 <button type="submit">Borrar</button>
             </form>

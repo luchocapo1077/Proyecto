@@ -44,7 +44,7 @@ class ExtensionRepository extends EntityRepository {
             if (count($filter->getAreas()) > 0) {
                 $dql = $dql . " AND";
             }
-            $dql = $dql . " pe.fechaHasta IS NOT NULL";
+            $dql = $dql . " pe.fechaHasta IS NULL";
         }
 
         $query = $em->createQuery($dql);

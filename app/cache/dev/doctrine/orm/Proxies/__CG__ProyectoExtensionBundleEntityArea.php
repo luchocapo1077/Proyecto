@@ -69,10 +69,52 @@ class Area extends \Proyecto\ExtensionBundle\Entity\Area implements \Doctrine\OR
         return parent::__toString();
     }
 
+    public function setIconoPath($iconoPath)
+    {
+        $this->__load();
+        return parent::setIconoPath($iconoPath);
+    }
+
+    public function getIconoPath()
+    {
+        $this->__load();
+        return parent::getIconoPath();
+    }
+
+    public function uploadIcono()
+    {
+        $this->__load();
+        return parent::uploadIcono();
+    }
+
+    public function getUploadRootDir()
+    {
+        $this->__load();
+        return parent::getUploadRootDir();
+    }
+
+    public function getUploadDir()
+    {
+        $this->__load();
+        return parent::getUploadDir();
+    }
+
+    public function serialize()
+    {
+        $this->__load();
+        return parent::serialize();
+    }
+
+    public function unserialize($data)
+    {
+        $this->__load();
+        return parent::unserialize($data);
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nombre');
+        return array('__isInitialized__', 'id', 'nombre', 'iconoPath');
     }
 
     public function __clone()

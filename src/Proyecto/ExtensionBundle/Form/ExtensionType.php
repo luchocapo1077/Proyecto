@@ -11,10 +11,12 @@ class ExtensionType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
                 ->add('proyecto', 'entity', array('class' => 'ProyectoExtensionBundle:Proyecto', 'empty_value' =>
-                    'Seleccione un proyecto', 'required' => false))
-                ->add('periodo', new PeriodoType())
+                    'Seleccione un proyecto', 'required' => true))
+                ->add('periodo', new PeriodoType(),array(                    
+                    'required' => true,
+                )) 
                 ->add('lugar', 'entity', array('class' => 'ProyectoExtensionBundle:Lugar', 'empty_value' =>
-                    'Seleccione un lugar', 'required' => false));
+                    'Seleccione un lugar', 'required' => true));
 
         ;
     }

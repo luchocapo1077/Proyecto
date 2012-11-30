@@ -46,7 +46,7 @@ class AreaController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('ProyectoExtensionBundle:Area:show.html.twig', array(
-            'entity'      => $entity,
+            'entity'      => $entity,'icono' => unserialize($entity->getIconoPath()),
             'delete_form' => $deleteForm->createView(),        ));
     }
 
@@ -76,6 +76,7 @@ class AreaController extends Controller
         $form->bind($request);
 
         if ($form->isValid()) {
+            $entity->uploadIcono();
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -108,6 +109,7 @@ class AreaController extends Controller
 
         return $this->render('ProyectoExtensionBundle:Area:edit.html.twig', array(
             'entity'      => $entity,
+            'icono' => unserialize($entity->getIconoPath()),
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));

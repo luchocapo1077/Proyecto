@@ -11,6 +11,12 @@
             <button type="submit">Guardar</button>
         </p>
     </form>
+    {% if icono != null %}       
+            <tr><th>Icono</th>
+                <td><img src="{{ asset(['uploads/markerIconos/', icono]|join) }}" alt="{{icono}} image not found" class="large" /></td>
+            </tr>
+    {% endif %}
+    
 
     <ul class="record_actions">
         <li>

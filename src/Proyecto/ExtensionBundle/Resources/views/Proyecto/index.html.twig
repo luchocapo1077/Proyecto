@@ -17,7 +17,7 @@
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Link</th>
+            <th>Link</th>            
             <th>Area</th>
             <th>Acciones</th>
         </tr>
@@ -27,7 +27,7 @@
             <tr>
                 <td><a href="{{ path('proyecto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nombre }}</td>
-                <td><a href="{{ entity.link }}">{{ entity.link }}</a></td>              
+                <td><a href="{{ entity.link }}">{{ entity.link }}</a></td>               
                 <td>{{ entity.area }}</td>
                 <td>
                     <ul>

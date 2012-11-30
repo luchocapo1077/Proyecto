@@ -36,45 +36,54 @@ class __TwigTemplate_370aa88795bd83751d7e5fa42f18657e extends Twig_Template
     {
         // line 6
         echo "
-    <h1>Listado de Areas</h1>
-
-    <table class=\"records_list\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
+<h1>Listado de Areas</h1>
+<ul id=\"menu\">
+        <li>
+            <a href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_new"), "html", null, true);
+        echo "\">
+                Crear un Area
+            </a>
+        </li>
+    </ul>
+<table class=\"records_list\">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
         ";
-        // line 18
+        // line 24
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "entities"));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 19
+            // line 25
             echo "            <tr>
                 <td><a href=\"";
-            // line 20
+            // line 26
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "id"), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 21
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "nombre"), "html", null, true);
             echo "</td>
                 <td>
                     <ul>
                         <li>
                             <a href=\"";
-            // line 25
+            // line 31
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_show", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">mostrar</a>
                         </li>
                         <li>
                             <a href=\"";
-            // line 28
+            // line 34
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_edit", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
             echo "\">editar</a>
                         </li>
@@ -86,20 +95,9 @@ class __TwigTemplate_370aa88795bd83751d7e5fa42f18657e extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 34
+        // line 40
         echo "        </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href=\"";
-        // line 39
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_new"), "html", null, true);
-        echo "\">
-                Crear un Area
-            </a>
-        </li>
-    </ul>
 ";
     }
 
@@ -115,6 +113,6 @@ class __TwigTemplate_370aa88795bd83751d7e5fa42f18657e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  95 => 39,  88 => 34,  76 => 28,  70 => 25,  63 => 21,  57 => 20,  54 => 19,  50 => 18,  36 => 6,  33 => 5,  27 => 3,);
+        return array (  97 => 40,  85 => 34,  79 => 31,  72 => 27,  66 => 26,  63 => 25,  59 => 24,  42 => 10,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

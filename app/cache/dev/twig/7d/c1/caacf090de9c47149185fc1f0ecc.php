@@ -55,7 +55,7 @@ class __TwigTemplate_7dc1caacf090de9c47149185fc1f0ecc extends Twig_Template
         <tr>
             <th>Id</th>
             <th>Nombre</th>
-            <th>Link</th>
+            <th>Link</th>            
             <th>Area</th>
             <th>Acciones</th>
         </tr>
@@ -83,7 +83,7 @@ class __TwigTemplate_7dc1caacf090de9c47149185fc1f0ecc extends Twig_Template
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "link"), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "link"), "html", null, true);
-            echo "</a></td>              
+            echo "</a></td>               
                 <td>";
             // line 31
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "entity"), "area"), "html", null, true);

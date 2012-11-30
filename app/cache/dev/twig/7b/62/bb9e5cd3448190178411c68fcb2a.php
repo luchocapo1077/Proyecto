@@ -51,11 +51,27 @@ class __TwigTemplate_7b62bb9e5cd3448190178411c68fcb2a extends Twig_Template
             <button type=\"submit\">Guardar</button>
         </p>
     </form>
+    ";
+        // line 14
+        if (($this->getContext($context, "icono") != null)) {
+            echo "       
+            <tr><th>Icono</th>
+                <td><img src=\"";
+            // line 16
+            echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl(twig_join_filter(array(0 => "uploads/markerIconos/", 1 => $this->getContext($context, "icono")))), "html", null, true);
+            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, $this->getContext($context, "icono"), "html", null, true);
+            echo " image not found\" class=\"large\" /></td>
+            </tr>
+    ";
+        }
+        // line 19
+        echo "    
 
     <ul class=\"record_actions\">
         <li>
             <a href=\"";
-        // line 17
+        // line 23
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area"), "html", null, true);
         echo "\">
                 Volver al listado
@@ -63,11 +79,11 @@ class __TwigTemplate_7b62bb9e5cd3448190178411c68fcb2a extends Twig_Template
         </li>
         <li>
             <form action=\"";
-        // line 22
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("area_delete", array("id" => $this->getAttribute($this->getContext($context, "entity"), "id"))), "html", null, true);
         echo "\" method=\"post\">
                 ";
-        // line 23
+        // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getContext($context, "delete_form"), 'widget');
         echo "
                 <button type=\"submit\">Borrar</button>
@@ -89,6 +105,6 @@ class __TwigTemplate_7b62bb9e5cd3448190178411c68fcb2a extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  69 => 23,  65 => 22,  57 => 17,  46 => 9,  40 => 8,  36 => 6,  33 => 5,  27 => 3,);
+        return array (  85 => 29,  81 => 28,  73 => 23,  67 => 19,  59 => 16,  54 => 14,  46 => 9,  40 => 8,  36 => 6,  33 => 5,  27 => 3,);
     }
 }
